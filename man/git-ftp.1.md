@@ -92,11 +92,11 @@ Another advantage is Git-ftp only handles files which are tracked with [Git].
 `--syncroot`
 :	Specifies a local directory to sync from as if it were the git project root path.
 
-`--sftp-key`
+`--key`
 :	SSH Private key file name.
 
-`--sftp-public-key`
-:	SSH Public key file name. Used with --sftp-key option.
+`--pubkey`
+:	SSH Public key file name. Used with --key option.
 
 `--insecure`
 :	Don't verify server's certificate.
@@ -116,7 +116,7 @@ The scheme of an URL is what you would expect
 
 	protocol://host.domain.tld:port/path
 
-Below a full featured URL to *host.exmaple.com* on port *2121* to path *mypath* using protocol *ftp*:
+Below a full featured URL to *host.example.com* on port *2121* to path *mypath* using protocol *ftp*:
 
 	ftp://host.example.com:2121/mypath
 
@@ -149,7 +149,7 @@ Everyone likes examples:
 	$ git config git-ftp.cacert caCertStore
 	$ git config git-ftp.deployedsha1file mySHA1File
 	$ git config git-ftp.insecure 1
-	$ git config git-ftp.sftp-key ~/.ssh/id_rsa
+	$ git config git-ftp.key ~/.ssh/id_rsa
 
 After setting those defaults, push to *john@ftp.example.com* is as simple as
 
@@ -214,7 +214,7 @@ Ignoring all files having extension `.txt` in `./` :
 
 This ignores `a.txt` and `b.txt` but not `dir/c.txt`
 
-Ingnoring a single file called `foobar.txt`:
+Ignoring a single file called `foobar.txt`:
 
 	foobar\.txt
 
@@ -231,7 +231,7 @@ If you have multiple source files being combined into a single untracked file, y
 
 # NETRC
 
-In the backend, Git-ftp uses curl. This means `~/.netrc`could be used beside the other options of Git-ftp to authenticate.
+In the backend, Git-ftp uses curl. This means `~/.netrc` could be used beside the other options of Git-ftp to authenticate.
 
 	$ editor ~/.netrc
 	machine ftp.example.com
